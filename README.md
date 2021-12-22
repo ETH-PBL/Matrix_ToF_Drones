@@ -30,14 +30,14 @@
   <p align="center">
     Indoor Navigation System based on Multi-Pixel Time-of-Flight Imaging for Nano-Drone Applications
     <br />
-    <a href="https://github.com/ETH-PBL/H-Watch"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://www.youtube.com/watch?v=JSp1-hzvBWk">View Demo</a>
     ·
-    <a href="https://github.com/ETH-PBL/H-Watch/issues">Report Bug</a>
+    <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ETH-PBL/H-Watch/issues">Request Feature</a>
+    <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/issues">Request Feature</a>
   </p>
 </p>
 
@@ -58,7 +58,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-The H-Watch is a fully open-sourde wearable long-lasting smart monitoring platform for health monitoring and tracking. Thanks to the integrated state-of-the-art NB-IoT cellular technology, it provides direct and secure cloud connectivity. It  is  based  on  widely  available  off-the-shelf components; however, it is designed with low-power and on-board intelligence in mind. Experimentalresults demonstrated only 5.9 mW of average power consumption, leading to a lifetime of 9 days on a small watch battery wothout, and up to 20 days with the solarenergy harvester.
+Unmanned aerial vehicles (UAVs) have recently attracted the industry's attention due to their numerous civilian and potential commercial applications.
+A promising UAV sub-class includes nano and micro UAVs, characterized by centimeter size, few grams of payload and extremely limited on-board computational resources. 
+Those features pose major challenges to enable autonomous navigation or even more basic relevant sub-tasks, such as reliable obstacle avoidance.  
+This project exploits a multi-zone Time of Flight (ToF) sensor to enable autonomous navigation and obstacle avoidance with a low lower computational load than most common visual-based solutions. 
 
 ## Hardware
 
