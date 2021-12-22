@@ -22,7 +22,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/ETH-PBL/H-Watch">
-    <img src="img/abstract.png" alt="Logo" width="1269" height="325">
+    <img src="pics/drone.png" alt="Logo" width="620" height="325">
   </a>
 
   <h3 align="center">Matrix_ToF_Drones</h3>
@@ -160,14 +160,14 @@ If you use **H-Watch** in an academic or industrial context, please cite the fol
 [stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
 
 
-[contributors-shield]: https://img.shields.io/github/contributors/ETH-PBL/H-Watch.svg?style=flat-square
-[contributors-url]: https://github.com/ETH-PBL/H-Watch/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/ETH-PBL/H-Watch.svg?style=flat-square
-[forks-url]: https://github.com/ETH-PBL/H-Watch/network/members
-[stars-shield]: https://img.shields.io/github/stars/ETH-PBL/H-Watch.svg?style=flat-square
-[stars-url]: https://github.com/ETH-PBL/H-Watch/stargazers
-[issues-shield]: https://img.shields.io/github/issues/ETH-PBL/H-Watch.svg?style=flat-square
-[issues-url]: https://github.com/ETH-PBL/H-Watch/issues
-[license-shield]: https://img.shields.io/github/license/ETH-PBL/H-Watch.svg?style=flat-square
-[license-url]: https://github.com/ETH-PBL/H-Watch/blob/master/LICENSE
-[product-screenshot]: images/screenshot.png
+[contributors-shield]: https://img.shields.io/github/contributors/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
+[contributors-url]: https://github.com/ETH-PBL/Matrix_ToF_Drones/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
+[forks-url]: https://github.com/ETH-PBL/Matrix_ToF_Drones/network/members
+[stars-shield]: https://img.shields.io/github/stars/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
+[stars-url]: https://github.com/ETH-PBL/Matrix_ToF_Drones/stargazers
+[issues-shield]: https://img.shields.io/github/issues/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
+[issues-url]: https://github.com/ETH-PBL/Matrix_ToF_Drones/issues
+[license-shield]: https://img.shields.io/github/license/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
+[license-url]: https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/master/LICENSE
+[product-screenshot]: pics/drone.png
