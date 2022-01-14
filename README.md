@@ -33,7 +33,7 @@
     <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=JSp1-hzvBWk">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=-WDpvO4t7PM">View Demo</a>
     ·
     <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/issues">Report Bug</a>
     ·
@@ -60,60 +60,60 @@
 
 Unmanned aerial vehicles (UAVs) have recently attracted the industry's attention due to their numerous civilian and potential commercial applications.
 A promising UAV sub-class includes nano and micro UAVs, characterized by centimeter size, few grams of payload and extremely limited on-board computational resources. 
-Those features pose major challenges to enable autonomous navigation or even more basic relevant sub-tasks, such as reliable obstacle avoidance.  
-This project exploits a multi-zone Time of Flight (ToF) sensor to enable autonomous navigation and obstacle avoidance with a low lower computational load than most common visual-based solutions. 
+Those features pose major challenges to enable autonomous navigation or even more basic relevant sub-tasks, such as reliable obstacle avoidance. This project exploits a multi-zone Time of Flight (ToF) sensor to enable autonomous navigation and obstacle avoidance with a low lower computational load than most common visual-based solutions. 
 
 ## Hardware
 
+The matrix ToF sensor, and thus this project aims to characterize and in-field evaluate the sensors <a href="www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html">VL53L5CX</a> from STMicroelectronics using a nano-drone platform. This project exploits a commercial nano-UAV platform, the Crazyflie 2.1 from bitcraze, together with a custom PCB designed to support two 8x8 ToF sensors. The following sections describe in detail the overall framework and the hardware setup.
+
 ### Components
-The H-Watch is a highly integrated multi-sensor wearable platform which is built of the key components, listed below: 
+The <a href="www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html">VL53L5CX</a> is a ToF multizone ranging sensor produced by STMicroelectronics. 
+It integrates a single-photon avalanche diode (SPAD) array, physical infrared filters, and diffractive optical elements (DOE) to achieve a millimeter accuracy in various ambient lighting conditions with a wide range of cover glass materials. The working range spans between 2 cm and 4 meters, but above 2 m the overall ranging precision degrades to 11% of the absolute distance. The most important feature of the VL53L5CX is the multizone capability, which can be configured as an 8x8 or 4x4 matrix. 
+Listed below the list of key components for our integrated deck targetted for the Crazyflie 2.1 platform: 
 
-* [MAX30101EFD+][max301010_url],  High-Sensitivity Pulse Oximeter and Heart-Rate Sensor for Wearable Health
-* [LSM303AGR][lsm303agr_url],     Ultra-compact high-performance eCompass module
-* [LPS22HB][lps22hb_url],         MEMS nano pressure sensor
-* [LSM6DSM][lsm6dsm_url],         Ultra-low power, high accuracy and stability iNEMO 6DoF inertial measurement unit (IMU)
-* [MP34DT05-A][mp34dt05_url],     MEMS audio sensor omnidirectional stereo digital microphone
-* [BQ25570][bq25570_url],         Ultra Low power Harvester power Management IC with boost charger, and Nanopower Buck Converter
-* [STM32WB55RG][stm32wb55_url],   Ultra-low-power dual core Arm Cortex-M4, Cortex-M0+ with 1 Mbyte of Flash memory, Bluetooth LE 5.2
-* [BC95GJB-02-STD][bc95G_url],    Multi-band NB-IoT Module with Ultra-low Power Consumption
-
-The H-Watchs housing, as well as its energy-saving memory LCD display, was taken from the [Matrix Power Watch][powerwatch_url] series 1.
+* [VL53L5CX][VL53L5CX_url],       ToF multizone ranging sensor
+* [TPS62233][tps62233_url],       3-MHz Ultra Small Step-Down Converter
+* [TCA6408A][tca6408a_url],       Low-Voltage 8-Bit I2C and SMBus I/O Expander
 
 ### PCB 
-The H-Watchs printed circuit board (PCB) is built of 6 Layers with a total board thichness of only 0.83mm. Further informations about the PCB can be found here:
+The H-Watchs printed circuit board (PCB) is built of 4 Layers with a total board thichness of only 0.83mm. Further informations about the PCB can be found here:
 
 File                                  | Content
 --------------------------------------|--------
-[H-Watch_schematics.pdf]              | Schematics of the H-Watch.  
-[H-Watch_connectors.pdf]              | Description of the position and functionality of all connectors and test pionts.
-[H-Watch_assembly.pdf]                | Assembly drawings of the top- and bottom-side of the PCB.
-[H-Watch_manufacturing.pdf]           | Detailed fabrication information about the exansion board; thickness, dimensions and defined layer stack.
-[H-Watch_layers.pdf]                  | Routing overview of all six copper layers.
-[H-Watch_3D.pdf]                      | 3D model of the H-Watches hardware
-[H-Watch_complete_documentation.pdf]  | The complete documentation contains all files above, excluding the 3D-PDF
+[Deck_schematics.pdf]                 | Schematics of the deck that supports 2 VL53L5CX.  
+[Deck_PCB_3D.pdf]                     | Layout 3D view with details to components and nets.
+[Sensor_Board_schematics.pdf]         | Schematic of the lateral PCB that hold one VL53L5CX.
+[Sensor_Board_PCB_3D.pdf]             | Layout 3D view with details to components and nets.
+[Final_Assembly_3D.pdf]               | Assembly of one Deck PCB together with two sensor board PCBs, front-facing and back-facing directions. 
 
 
-The latest Altium files of of the PCB can be found [here][latest_altium_files]
-
+The preview of the assembly, with details of logical connections can be found here:
+<a href="https://github.com/ETH-PBL/H-Watch">
+    <img src="pics/cad.png" alt="Logo" width="420" height="325">
+</a>
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-* [STM32CubeIDE][stmcubeIDE_url]
-* Firmware Package FW_WB V1.8.0
+#### Material
+
+* One fully mounted [Deck_schematics.pdf] and two [Sensor_Board_schematics.pdf] assembled as shown here: [Final_Assembly_3D.pdf]
+* The [Crazyflie 2.1][crazyflie_url]
+* The [Flow Deck v2][flowdeck_url]. The VL53L1x ToF sensor measures the distance to the ground with high precision and the PMW3901 optical flow sensor measures movements of the ground.
 
 #### Software
+
+* [STM32CubeIDE][stmcubeIDE_url]
+* Firmware Package FW_WB V1.8.0
 
 ### Installation
 
 
 
 ## Acknowledges
-The authors recognise and thank the European Open Science Cloud (EOSC) for financial support under COVID-19 research to open access grant agreements.
-EOSCsecretariat.eu has received funding from the European Union's Horizon Programme call H2020-INFRAEOSC-05-2018-2019, grant Agreement number 831644.
 
-If you use **H-Watch** in an academic or industrial context, please cite the following publications:
+If you use **Matrix ToF Drone** in an academic or industrial context, please cite the following publications:
 
 ~~~~
 @INPROCEEDINGS{20.500.11850/476189,
@@ -134,27 +134,21 @@ If you use **H-Watch** in an academic or industrial context, please cite the fol
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 <!--Subsection Hardware-->
-[max301010_url]:    https://www.maximintegrated.com/en/products/interface/sensor-interface/MAX30101.html
-[lsm303agr_url]:    https://www.st.com/en/mems-and-sensors/lsm303agr.html
-[lps22hb_url]:      https://www.st.com/en/mems-and-sensors/lps22hb.html
-[lsm6dsm_url]:      https://www.st.com/en/mems-and-sensors/lsm6dsm.html
-[mp34dt05_url]:     https://www.st.com/en/mems-and-sensors/mp34dt05-a.html
-[bq25570_url]:      https://www.ti.com/product/BQ25570
-[stm32wb55_url]:    https://www.st.com/en/microcontrollers-microprocessors/stm32wb55rg.html
-[bc95G_url]:        https://www.quectel.com/UploadFile/Product/Quectel_BC95-G_NB-IoT_Specification_V1.2.pdf
-[powerwatch_url]:   https://www.powerwatch.com/collections/powerwatch/products/black-ops-pack-10  
+[VL53L5CX_url]:     www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html
+[tps62233_url]:     https://www.ti.com/lit/ds/symlink/tps62230.pdf?ts=1642068933103&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS62230
+[tca6408a_url]:     https://www.ti.com/lit/ds/symlink/tca6408a.pdf?ts=1642063709908&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTCA6408A
+[crazyflie_url]:    https://www.bitcraze.io/products/crazyflie-2-1/
+[flowdeck_url]:     https://store.bitcraze.io/collections/decks/products/flow-deck-v2
 
 <!--Subsection PCB-->
 
+[Deck_schematics.pdf]:                    /Hardware/TofDeck/TofDeck.pdf
+[Deck_PCB_3D.pdf]:                        /Hardware/TofDeck/Deck_3D.pdf
+[Sensor_Board_schematics.pdf]:            /Hardware/SensorBoard/SensorBoard.pdf
+[Sensor_Board_PCB_3D.pdf]:                /Hardware/SensorBoard/SensorPCB_3D.pdf
+[Final_Assembly_3D.pdf]:                  /Hardware/MultiBoard_Project/Outputs/Assembly1.pdf
 
-[H-Watch_schematics.pdf]:                 /Hardware/H-Watch_V0.2/Documentation/H-Watch_schematics.PDF
-[H-Watch_connectors.pdf]:                 /Hardware/H-Watch_V0.2/Documentation/H-Watch_connectors.PDF
-[H-Watch_assembly.pdf]:                   /Hardware/H-Watch_V0.2/Documentation/H-Watch_assembly.PDF
-[H-Watch_manufacturing.pdf]:              /Hardware/H-Watch_V0.2/Documentation/H-Watch_manufacturing.PDF
-[H-Watch_layers.pdf]:                     /Hardware/H-Watch_V0.2/Documentation/H-Watch_layers.PDF
-[H-Watch_3D.pdf]:                         /Hardware/H-Watch_V0.2/Documentation/H-Watch_3D.PDF
-[H-Watch_complete_documentation.pdf]:     /Hardware/H-Watch_V0.2/Documentation/H-Watch_complete_documentation.PDF
-[latest_altium_files]:                    /Hardware/H-Watch_V0.2/   
+
 
 
 [stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
