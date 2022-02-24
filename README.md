@@ -122,14 +122,11 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 ~~~~
 @INPROCEEDINGS{20.500.11850/476189,
 	copyright = {Creative Commons Attribution 4.0 International},
-	year = {2021-05-22},
-	author = {Polonelli, Tommaso and Schulthess, Lukas and Mayer, Philipp and Magno, Michele and Benini, Luca},
-	size = {6 p. submitted version},
-	keywords = {wearable device; Covid-19; smart sensing; low power design; Tiny Machine Learning; wireless sensor networks},
+	year = {2022},
+	author = {Niculescu Vlad, Müller Hanna, Ostovar Iman, Polonelli Tommaso, Magno Michele, Benini Luca},
+	keywords = {UAV, nano-drone, autonomous navigation, obstacle avoidance, Time of Flight},
 	language = {en},
-	DOI = {10.3929/ethz-b-000476189},
-	title = {H-Watch: An Open, Connected Platform for AI-Enhanced COVID19 Infection Symptoms Monitoring and Contact Tracing.},
-	Note = {IEEE International Symposium on Circuits and Systems (ISCAS 2021); Conference Location: online; Conference Date: May 22–28}
+	title = {Towards a Multi-Pixel Time-of-Flight Indoor Navigation System for Nano-Drone Applications.},
 }
 ~~~~
 
