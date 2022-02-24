@@ -82,12 +82,15 @@ File                                  | Content
 --------------------------------------|--------
 [Deck_schematics.pdf]                 | Schematics of the deck that supports 2 VL53L5CX.  
 [Deck_PCB_3D.pdf]                     | Layout 3D view with details to components and nets.
+[Deck_BOM.xlsx]			      | Bill of material for the Deck PCB.
 [Sensor_Board_schematics.pdf]         | Schematic of the lateral PCB that hold one VL53L5CX.
 [Sensor_Board_PCB_3D.pdf]             | Layout 3D view with details to components and nets.
+[Sensor_Board_BOM.xlsx]               | Bill of material for the sensor board.
 [Final_Assembly_3D.pdf]               | Assembly of one Deck PCB together with two sensor board PCBs, front-facing and back-facing directions. 
 
 
 The preview of the assembly, with details of logical connections can be found here:
+
 <a href="https://github.com/ETH-PBL/H-Watch">
     <img src="pics/cad.png" alt="Logo" width="420" height="325">
 </a>
@@ -106,6 +109,7 @@ The preview of the assembly, with details of logical connections can be found he
 
 * [STM32CubeIDE][stmcubeIDE_url]
 * Firmware Package FW_WB V1.8.0
+* [Altium][altium_url]
 
 ### Installation
 
@@ -154,6 +158,7 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 
 
 [stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
+[altium_url]:	        https://www.altium.com/
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
