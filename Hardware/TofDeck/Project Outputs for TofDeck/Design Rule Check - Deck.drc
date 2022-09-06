@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : Y:\private\repo\iman-ostovar\Hardware\TofDeck\Deck.PcbDoc
-Date     : 10.09.2021
-Time     : 16:18:02
+PCB File : C:\Users\topolonelli\Documents\Matrix_ToF_Drones_public\Hardware\TofDeck\Deck.PcbDoc
+Date     : 06/09/2022
+Time     : 11:51:22
 
 Processing Rule : Clearance Constraint (Gap=0.15mm) (All),(All)
 Rule Violations :0
@@ -90,4 +90,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02
