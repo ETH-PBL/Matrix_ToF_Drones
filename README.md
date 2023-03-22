@@ -136,6 +136,17 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 }
 ~~~~
 
+~~~~
+@inproceedings{ostovar2022demo,
+  title={Demo Abstract: Towards Reliable Obstacle Avoidance for Nano-UAVs},
+  author={Ostovar, Iman and Niculescu, Vlad and M{\"u}ller, Hanna and Polonelli, Tommaso and Magno, Michele and Benini, Luca},
+  booktitle={2022 21st ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN)},
+  pages={501--502},
+  year={2022},
+  organization={IEEE}
+}
+~~~~
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
