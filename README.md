@@ -26,6 +26,7 @@
   </a>
 
   <h3 align="center">Matrix_ToF_Drones</h3>
+  <h3 align="center">Work in progress - not completed yet</h3>
 
   <p align="center">
     Indoor Navigation System based on Multi-Pixel Time-of-Flight Imaging for Nano-Drone Applications
@@ -33,7 +34,7 @@
     <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.youtube.com/watch?v=-WDpvO4t7PM">View Demo</a>
+    <a href="https://youtu.be/FyipTqjBGuM">View Demo</a>
     ·
     <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/issues">Report Bug</a>
     ·
@@ -61,6 +62,12 @@
 Unmanned aerial vehicles (UAVs) have recently attracted the industry's attention due to their numerous civilian and potential commercial applications.
 A promising UAV sub-class includes nano and micro UAVs, characterized by centimeter size, few grams of payload and extremely limited on-board computational resources. 
 Those features pose major challenges to enable autonomous navigation or even more basic relevant sub-tasks, such as reliable obstacle avoidance. This project exploits a multi-zone Time of Flight (ToF) sensor to enable autonomous navigation and obstacle avoidance with a low lower computational load than most common visual-based solutions. 
+
+### Videos and Demos
+* [PBL Event: catch me if you can][video1_url]
+* [Towards Reliable Obstacle Avoidance for Nano-UAVs][video2_url]
+* [Enabling Obstacle Avoidance for Nano-UAVs with a multi-zone depth sensor and a model-free policy][video3_url]
+
 
 ## Hardware
 
@@ -130,6 +137,17 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 }
 ~~~~
 
+~~~~
+@inproceedings{ostovar2022demo,
+  title={Demo Abstract: Towards Reliable Obstacle Avoidance for Nano-UAVs},
+  author={Ostovar, Iman and Niculescu, Vlad and M{\"u}ller, Hanna and Polonelli, Tommaso and Magno, Michele and Benini, Luca},
+  booktitle={2022 21st ACM/IEEE International Conference on Information Processing in Sensor Networks (IPSN)},
+  pages={501--502},
+  year={2022},
+  organization={IEEE}
+}
+~~~~
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
@@ -156,6 +174,9 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 
 [stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
 [altium_url]:	        https://www.altium.com/
+[video1_url]:	        https://youtu.be/FyipTqjBGuM
+[video2_url]:	        https://youtu.be/m9-spY1ruAQ
+[video3_url]:	        https://youtu.be/eR2RfNcEVSU
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
