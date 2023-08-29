@@ -50,9 +50,10 @@
 * [Hardware](#hardware)
   * [Components](#hardware)
   * [PCB](#pcb) 
+* [Dataset](#dataset)
+  * [Dataset Visualizer](#visualizer)
 * [Getting Started](#getting-started)
   * [Software](#software)
-  * [Installation](#installation)
   
 
 
@@ -103,6 +104,34 @@ The preview of the assembly, with details of logical connections can be found he
 </a>
 
 <!-- GETTING STARTED -->
+
+## Dataset
+
+### Dataset Visualizer
+
+A Conda virtual environment is provided to execute the Flight_visualizer.py script
+
+```
+conda env create -f environment.yml
+```
+
+then activate the environment using
+
+```
+conda activate Matrix_ToF_Drones
+```
+
+then run 
+
+```
+python Flight_visualizer.py
+```
+
+the resulted generated videos will be save to the folder VisualizerResults in the following format:
+
+<a href="https://github.com/ETH-PBL/H-Watch">
+    <img src="pics/A0.gif" alt="Logo" width="600" height="400">
+</a>
 
 ## Getting Started
 
