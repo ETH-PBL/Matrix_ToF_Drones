@@ -99,9 +99,11 @@ File                                  | Content
 
 The preview of the assembly, with details of logical connections can be found here:
 
-<a href="https://github.com/ETH-PBL/H-Watch">
+<p align="center">
+<a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/Hardware/TofDeck/Deck_3D.pdf">
     <img src="pics/cad.png" alt="Logo" width="420" height="325">
 </a>
+</p>
 
 <!-- GETTING STARTED -->
 
@@ -132,9 +134,11 @@ python Flight_visualizer.py
 
 the resulted generated videos will be save to the folder VisualizerResults in the following format:
 
-<a href="https://github.com/ETH-PBL/H-Watch">
+<p align="center">
+<a href="https://github.com/ETH-PBL/Matrix_ToF_Drones">
     <img src="pics/A0.gif" alt="Logo" width="600" height="400">
 </a>
+</p>
 
 ## Getting Started
 
