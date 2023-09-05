@@ -21,6 +21,25 @@ import datetime
 import warnings
 warnings.filterwarnings("ignore")
 
+GROUND_BORDER = 6
+CEILING_BORDER = 2
+DIS_GROUND_MIN = 400 # mm
+DIS_CEILING_MIN = 600 # mm
+
+DIS_REACT = 2000; # mm
+DIS_SLOW = 700; # mm
+DIS_STOP = 400; # mm
+DIS_FEAR = 150; # mm
+
+DRONE_ZONE_tl_x = 3.0
+DRONE_ZONE_tl_y = 3.0
+DRONE_ZONE_br_x = 5.0
+DRONE_ZONE_br_y = 4.0
+CARE_ZONE_tl_x = 2.0
+CARE_ZONE_tl_y = 2.0
+CARE_ZONE_br_x = 5.0
+CARE_ZONE_br_y = 5.0
+
 
 def set_box_color(bp, color):
     plt.setp(bp['boxes'], color=color)
@@ -214,22 +233,9 @@ def make_image(all_data, indexes, data_state, address, fig):
         # To remove the huge white borders
         # ax.margins(0)
 
- # TODO HANNA   
-def angle_calculator(dis1, index1, dis2, index2):
-
-    fov_deg = 45
-    fov_h = math.radians(fov_deg/2)
-    alpha1 = math.atan((7-2*index1)/7 * math.tan(fov_h))
-    alpha2 = math.atan((7-2*index2)/7 * math.tan(fov_h))
-
-    beta = math.atan((math.tan(alpha1)*dis1 - math.tan(alpha2)*dis2)/(dis2-dis1))
-    round_angle = (round(math.degrees(beta),1))
-    # if(round_angle < 0):
-    #     round_angle = 360 +round_angle
-    return round_angle
-
 # TODO HANNA
 def object_detection(image):
+    objects_pos = []
     one_indexes = np.array(np.where(image == 1))
     if len(one_indexes[0])>= 1:
         objects =[]
@@ -237,8 +243,7 @@ def object_detection(image):
         objects[0].append([one_indexes[0,0],one_indexes[1,0]])
         # one_indexes =np.delete(one_indexes,0,1)
     else:
-        return []
-    objects_pos = []
+        return objects_pos
     if len(one_indexes[0]) >= 2:
         #put connected nodes in objects
         for i in range(1,len(one_indexes[0])):
@@ -303,7 +308,7 @@ def object_detection(image):
                 Ys.append(index[1])
             objects_pos.append([Xs,Ys])
     else:
-        objects_pos = objects_pos.append([one_indexes[0,0],one_indexes[1,0]])
+        objects_pos.append([[one_indexes[0,0]],[one_indexes[1,0]]])
     return objects_pos
     
 # TODO HANNA
@@ -327,95 +332,109 @@ def desicion_making(img_array,invalid_mask,fig):
             img[i] = nan
     img = np.around(img)
     img=np.reshape(img,(8,8))
-    v_angle = []
-    h_angle = []
-    # TODO HANNA
+
+    dis_global_min = 2**16 - 1
+    selected_target = - 1
     for i in range(len(targets)):
         curr_target = targets[i]
         Xs = curr_target[0]
         Ys = curr_target[1]
-        #vertical angle
-        a = min(Ys)
-        b = max(Ys)
-        v_angle.append(0)#v_angle.append(angle_calculator(np.nanmean(img[:,a]), a, np.nanmean(img[:,b]), b))
-        #horizontal angle
-        a = min(Xs)
-        b = max(Xs)
-        h_angle.append(0)#h_angle.append(angle_calculator(np.nanmean(img[a,:]), a, np.nanmean(img[b,:]), b))
+        tar_distances = []
+        for j in range(len(Xs)):
+            tar_distances.append(img[Xs[j],Ys[j]]) #in mm
+        if min(tar_distances) < dis_global_min:
+            dis_global_min = min(tar_distances)
+            selected_target = i
 
     decision_str = ""
-    if(len(targets) == 0): 
+    if(selected_target < 0): 
         # no target detected
         decision_str+= "/Forward"
     else:
-        for i in range(len(targets)):
-            Xs = targets[i][0] 
-            Ys = targets[i][1]
-            tar_distances = []
-            for j in range(len(Xs)):
-                tar_distances.append(img[Xs[j],Ys[j]]) #in mm
-            tar_center_pos = [average(Xs),average(Ys)]
-            midx = 3.5
-            midy = 3.5
-            miny = 3
-            minx = 2
-            maxy = 5
-            maxx = 4
-            if tar_center_pos[0]>midx:
-                lower = True
-                upper = False
-            else:
-                lower=False
-                upper = True
-            if tar_center_pos[1]>midy:
-                right = True
-                left = False
-            else:
-                right=False
-                left = True
-
-            if (min(Xs) >= 6) and nanmin(tar_distances)<500 and lower: #check for ground lower
-                #ground should be avoided
-                decision_str+= "/increase height"
-                target_str += '-G'
-            elif (max(Xs) <= 2) and nanmin(tar_distances)<800 and upper: #check for celling upper
-                #celling should be avoided
-                decision_str+= "/Decrease height"
-                target_str += '-C'
-            elif nanmin(tar_distances)<750: #check for front object
-                #objects which should be avoided
-                if upper and left : #upper left
-                    target_str += '-ul'
-                    if max(Ys) >= miny and max(Xs) >= minx:
-                        decision_str+= "/stop and roatet to Right"
-                    else : 
-                        decision_str+= "/slow Forward and roatet to Left"
-                elif upper and right : #upper right
-                    target_str += '-ur'
-                    if min(Ys) <= maxy and max(Xs) >= minx:
-                        decision_str+= "/stop and roatet to Left"
-                    else : 
-                        decision_str+= "/slow Forward and roatet to Left"     
-                elif lower and left : #lower left
-                    target_str += '-ll'
-                    if max(Ys) >= miny and min(Xs) <= maxx:
-                        decision_str+= "/stop and roatet to Right"
-                    else : 
-                        decision_str+= "/slow Forward and roatet to Right"
-                elif lower and right : #lower right
-                    target_str += '-lr'
-                    if min(Ys) <= maxy and min(Xs) <= maxx:
-                        decision_str+= "/stop and roatet to Left"
-                    else : 
-                        decision_str+= "/slow Forward and roatet to Left"
+        Xs = targets[selected_target][0] 
+        Ys = targets[selected_target][1]
+        tar_distances = []
+        for j in range(len(Xs)):
+            tar_distances.append(img[Xs[j],Ys[j]]) #in mm
+        tar_center_pos = [average(Xs),average(Ys)]
+        midx = 3.5
+        midy = 3.5
+        miny = 3
+        minx = 2
+        maxy = 5
+        maxx = 4
+        if tar_center_pos[0]>midx:
+            lower = True
+            upper = False
+        else:
+            lower=False
+            upper = True
+        if tar_center_pos[1]>midy:
+            right = True
+            left = False
+        else:
+            right=False
+            left = True
+        
+        if (min(Xs) >= GROUND_BORDER) and nanmin(tar_distances)<DIS_GROUND_MIN and lower: #check for ground lower
+            #ground should be avoided
+            decision_str+= "/increase height"
+            target_str += '-G'
+        elif (max(Xs) <= CEILING_BORDER) and nanmin(tar_distances)<DIS_CEILING_MIN and upper: #check for celling upper
+            #celling should be avoided
+            decision_str+= "/Decrease height"
+            target_str += '-C'
+        elif nanmin(tar_distances)<DIS_FEAR:
+            #fly backwards - we cannot see backwards, but we are too close to something to not crash if we don't back up anyway
+            decision_str+= "/backward"
+            target_str += '-F'
+        elif nanmin(tar_distances)<DIS_REACT: #check for front object
+            #objects which should be avoided
+            if min(Ys) >= DRONE_ZONE_tl_y and min(Xs) >= DRONE_ZONE_tl_x and max(Ys) <= DRONE_ZONE_br_y and max(Xs) <= DRONE_ZONE_br_x:
+                if nanmin(tar_distances)<=DIS_STOP:
+                    if left:
+                        decision_str+= "/stop and rotate fast right"
+                        target_str += '-dzl'
+                    else:
+                        decision_str+= "/stop and rotate fast left"
+                        target_str += '-dzr'
+                if nanmin(tar_distances)<=DIS_SLOW:
+                    if left:
+                        decision_str+= "/slow forward and rotate fast right"
+                        target_str += '-dzl'
+                    else:
+                        decision_str+= "/slow forward and rotate fast left"
+                        target_str += '-dzr'
                 else:
-                    target_str += '-err'
-                    decision_str+= 'stop'
+                    if left:
+                        decision_str+= "/medium forward and rotate slow right"
+                        target_str += '-dzl'
+                    else:
+                        decision_str+= "/medium forward and rotate slow left"
+                        target_str += '-dzr'
+            elif min(Ys) >= CARE_ZONE_tl_y and min(Xs) >= CARE_ZONE_tl_x and max(Ys) <= CARE_ZONE_br_y and max(Xs) <= CARE_ZONE_br_x:
+                if nanmin(tar_distances)<=DIS_STOP:
+                    if left:
+                        decision_str+= "/stop and rotate fast right"
+                        target_str += '-czl'
+                    else:
+                        decision_str+= "/stop and rotate fast left"
+                        target_str += '-czr'
+                else:
+                    if left:
+                        decision_str+= "/medium forward and rotate slow right"
+                        target_str += '-czl'
+                    else:
+                        decision_str+= "/medium forward and rotate slow left"
+                        target_str += '-czr'
+            else:
+                decision_str+= "/medium forward"
+                target_str += '-nz'
             
-            else: 
-                #object is out of range
-                decision_str+= "/slow Forward"
-                target_str += '-sf'
+        else: 
+            #object is out of range
+            decision_str+= "/medium forward"
+            target_str += '-OoR'
 
             
     ax = fig.add_subplot(233)
