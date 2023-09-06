@@ -105,16 +105,16 @@ The preview of the assembly, with details of logical connections can be found he
 </a>
 </p>
 
-<!-- GETTING STARTED -->
-
 ## Dataset
 
 Tests were performed in controlled and open spaces, with the support of a motion capture system (mocap) Vicon Vero 2.2 at a rate of 50 Hz. A human pilot manually steered the Crazyflie. Initially, the dataset was used to develop and test the obstacle avoidance algorithm. However, other researchers can also use it to improve our system by integrating the multi-zone ToF data with processed information from a CNN and the grayscale camera or by applying a more general DNN algorithm to enhance on-board intelligence. 
 We collected (a) internal state estimation (attitude, velocity, position) of the Crazyflie, (b) multi-zone ToF array in 8x8 pixel configuration, (c) camera images (QVGA greyscale), (d) Vicon data (attitude, position) in a time series format with millisecond accuracy. The dataset consists of three main groups: object approach moving the drone on a single axis, yaw rotations around the Z-axis, and a general-purpose set of flying tests approaching various obstacles and narrow holes. The first group, named Linear Movements, consists of 10 recordings of flights with (a), (b), (c), and (d) data, approaching a wood panel at different speeds and stopping and flying back always on the same axis, rotations and altitude variations are disabled. The total test time is 216 seconds with an average of 22 seconds per acquisition. The next group, Yaw Rotations, consists of 3 recordings with (a), (b), (c), and (d) data, rotating on a single axis (yaw) at 1 meter from an obstacle. Recorded data reach a total of 94 seconds. The third and final group, named Obstacle Avoidance is composed of 30 recordings with a mixed combination of (a), (b), (c), (d) - 14 acquisitions - and (a), (b), (c) - 16 acquisitions. In total, for the third group, 17 minutes of flight maneuvers are present in the Flight DataSet folder, with an average of 35 seconds per acquisition. 
 
+The list of experiments is available here: [Flight_description.xlsx]
+
 ### Dataset Visualizer
 
-A Conda virtual environment is provided to execute the Flight_visualizer.py script
+A Conda virtual environment is provided to execute the Flight_visualizer.py script, an example of the exported video is provided below. The Flight_visualizer.py also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor.
 
 ```
 conda env create -f environment.yml
@@ -139,6 +139,15 @@ the resulted generated videos will be save to the folder VisualizerResults in th
     <img src="pics/A0.gif" alt="Logo" width="600" height="400">
 </a>
 </p>
+
+NOTE: The Flight_visualizer.py will export by default all the experiments from the selected folder, resulted videos will be saved to a different folder. The default settings for the source and destination folder are as below:
+
+```
+folder_address = "Approach/"
+```
+```
+address2save = "VisualizerResults/"
+```
 
 ## Getting Started
 
@@ -196,7 +205,6 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 [flowdeck_url]:     https://store.bitcraze.io/collections/decks/products/flow-deck-v2
 
 <!--Subsection PCB-->
-
 [Deck_schematics.pdf]:                    /Hardware/TofDeck/TofDeck.pdf
 [Deck_PCB_3D.pdf]:                        /Hardware/TofDeck/Deck_3D.pdf
 [Deck_BOM.xlsx]:                          /Hardware/TofDeck/BOM_TofDeck.xlsx
@@ -204,6 +212,9 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 [Sensor_Board_PCB_3D.pdf]:                /Hardware/SensorBoard/SensorPCB_3D.pdf
 [Sensor_Board_BOM.xlsx]:                  /Hardware/SensorBoard/BOM_SensorBoard.xlsx
 [Final_Assembly_3D.pdf]:                  /Hardware/MultiBoard_Project/Outputs/Assembly1.pdf
+
+<!--Subsection Dataset-->
+[Flight_description.xlsx]:	          /Flight%20DataSet/Flight%20Dataset%20Description.xlsx
 
 
 
