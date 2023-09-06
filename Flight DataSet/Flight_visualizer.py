@@ -1,3 +1,13 @@
+#  
+#   Copyright (C) 2023 ETH Zurich
+#   All rights reserved.
+#  
+#   This software may be modified and distributed under the terms
+#   of the GPL-3.0 license.  See the LICENSE file for details.
+#  
+#   Authors: Hanna Müller, Vlad Niculescu, Tommaso Polonelli, Iman Ostovar
+#  
+
 from math import nan
 import math
 from re import I
@@ -233,7 +243,6 @@ def make_image(all_data, indexes, data_state, address, fig):
         # To remove the huge white borders
         # ax.margins(0)
 
-# TODO HANNA
 def object_detection(image):
     objects_pos = []
     one_indexes = np.array(np.where(image == 1))
@@ -311,7 +320,6 @@ def object_detection(image):
         objects_pos.append([[one_indexes[0,0]],[one_indexes[1,0]]])
     return objects_pos
     
-# TODO HANNA
 def desicion_making(img_array,invalid_mask,fig):
     danger_distance= 150 #cm
     binary_imgarr = np.around(img_array/10)
