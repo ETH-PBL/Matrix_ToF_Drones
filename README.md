@@ -159,12 +159,33 @@ address2save = "VisualizerResults/"
 
 #### Software
 
-* [STM32CubeIDE][stmcubeIDE_url]
-* Firmware Package FW_WB V1.8.0
-* [Altium][altium_url]
+* [Crazyflie Client][cfclient_url]
+* [Altium][altium_url] (only needed for modifying the hardware)
 
-### Installation
+### Building and Flashing
 
+This work was tested using the [Crazyflie Firmware][cffw_url] at commit b0c72f2a4cb8b432211a2fa38d97c5a1dcef07ff. The code which was used for the paper is found at the github tag v1.0 in this repository. However, since then the build system of the crazyflie firmware has been updated, so to make this code compatible with newer versions the newest code in this git repo is updated to the kbuild system.
+
+- Follow the [Crazyflie guide][cfbf_url] for building and flashing and make sure you can compile the crazyflie-firmware without any issues
+- Clone this repository and update ```CRAZYFLIE_BASE``` in the **Makefile** (in the Firmware directory) to point to your own crazyflie-firmare repository
+- Open a terminal inside the Firmware folder
+- Put your drone in bootloader mode
+- Execute the following comands:
+
+```
+make clean
+make 
+make cload
+```
+
+### Take-off!
+
+- Turn on the drone  
+- Connect to it via [Crazyflie Client][cfclient_url]
+- Optional: Adapt params like max vel, height, etc. if wanted (in the Parameters tab, ToF_FLY_PARAMS)
+- Enter a number (in seconds) for how long it should fly (it will anyway land once the battery runs out) in the ToFly parameter
+- Press enter, it will take off and start flying around!
+- Optional: Look at the cmds in the Plotter tab (add a config under "Settings" "logging configurations")
 
 
 ## Acknowledges
@@ -220,6 +241,9 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 
 
 [stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
+[cfclient_url]:	      https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/
+[cffw_url]:	          https://github.com/bitcraze/crazyflie-firmware
+[cfbf_url]:	          https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/
 [altium_url]:	        https://www.altium.com/
 [video1_url]:	        https://youtu.be/FyipTqjBGuM
 [video2_url]:	        https://youtu.be/m9-spY1ruAQ

@@ -1,27 +1,30 @@
+# The firmware uses the Kbuild build system. There are 'Kbuild' files in this
+# example that outlays what needs to be built. (check src/Kbuild).
+#
+# The firmware is configured using options in Kconfig files, the
+# values of these end up in the .config file in the firmware directory.
+#
+# By setting the OOT_CONFIG (it is '$(PWD)/oot-config' by default) environment
+# variable you can provide a custom configuration. It is important that you
+# enable the app-layer. See app-config in this directory for example.
 
-# enable app support
-APP=1
-#Set the task stack size in 32bit word (4 Bytes). The default is 300 (1.2KBytes)
-APP_STACKSIZE=1000
-#Set the task priority between 0 and 5. Default is 0 (same as IDLE).
-APP_PRIORITY = 0
+#
+# We want to execute the main Makefile for the firmware project,
+# it will handle the build for us.
+#
+CRAZYFLIE_BASE := ../crazyflie-firmware/
 
+#
+# To include header files from other directories
+#
+EXTRA_CFLAGS += -I$(PWD)/src
+EXTRA_CFLAGS += -I$(PWD)/src/tof_driver
+EXTRA_CFLAGS += -Wno-error
 
-VPATH += src/
-VPATH += src/tof_driver
-PROJ_OBJ += test_tof.o
-PROJ_OBJ += I2C_expander.o
-PROJ_OBJ += ToF_process.o
-PROJ_OBJ += vl53l5cx_api.o
-PROJ_OBJ += ToFplatform.o
-PROJ_OBJ += Fly_control.o
-# PROJ_OBJ += morph.o
+#
+# We override the default OOT_CONFIG here, we could also name our config
+# to oot-config and that would be the default.
+#
+OOT_CONFIG := $(PWD)/app-config
 
-
-
-INCLUDES += -Isrc -Isrc/tof_driver
-
-CRAZYFLIE_BASE=../../../crazyflie-firmware
-
-include $(CRAZYFLIE_BASE)/Makefile
-CFLAGS := $(CFLAGS:%-Werror=%-Wno-error)
+include $(CRAZYFLIE_BASE)/tools/make/oot.mk
