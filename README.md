@@ -21,7 +21,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/ETH-PBL/H-Watch">
+  <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones">
     <img src="pics/drone.png" alt="Logo" width="620" height="325">
   </a>
 
@@ -72,10 +72,10 @@ Those features pose major challenges to enable autonomous navigation or even mor
 
 ## Hardware
 
-The matrix ToF sensor, and thus this project aims to characterize and in-field evaluate the sensors <a href="www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html">VL53L5CX</a> from STMicroelectronics using a nano-drone platform. This project exploits a commercial nano-UAV platform, the Crazyflie 2.1 from bitcraze, together with a custom PCB designed to support two 8x8 ToF sensors. The following sections describe in detail the overall framework and the hardware setup.
+The matrix ToF sensor, and thus this project aims to characterize and in-field evaluate the sensors <a href="https://www.st.com/resource/en/datasheet/vl53l5cx.pdf">VL53L5CX</a> from STMicroelectronics using a nano-drone platform. This project exploits a commercial nano-UAV platform, the Crazyflie 2.1 from bitcraze, together with a custom PCB designed to support two 8x8 ToF sensors. The following sections describe in detail the overall framework and the hardware setup.
 
 ### Components
-The <a href="www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html">VL53L5CX</a> is a ToF multizone ranging sensor produced by STMicroelectronics. 
+The <a href="https://www.st.com/resource/en/datasheet/vl53l5cx.pdf">VL53L5CX</a> is a ToF multizone ranging sensor produced by STMicroelectronics. 
 It integrates a single-photon avalanche diode (SPAD) array, physical infrared filters, and diffractive optical elements (DOE) to achieve a millimeter accuracy in various ambient lighting conditions with a wide range of cover glass materials. The working range spans between 2 cm and 4 meters, but above 2 m the overall ranging precision degrades to 11% of the absolute distance. The most important feature of the VL53L5CX is the multizone capability, which can be configured as an 8x8 or 4x4 matrix. 
 Listed below the list of key components for our integrated deck targetted for the Crazyflie 2.1 platform: 
 
@@ -114,7 +114,7 @@ The list of experiments is available here: [Flight_description.xlsx]
 
 ### Dataset Visualizer
 
-A Conda virtual environment is provided to execute the Flight_visualizer.py script, an example of the exported video is provided below. The Flight_visualizer.py also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor.
+A Conda virtual environment is provided to execute the <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> script, an example of the exported video is provided below. The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor.
 
 ```
 conda env create -f environment.yml
@@ -140,7 +140,7 @@ the resulted generated videos will be save to the folder VisualizerResults in th
 </a>
 </p>
 
-NOTE: The Flight_visualizer.py will export by default all the experiments from the selected folder, resulted videos will be saved to a different folder. The default settings for the source and destination folder are as below:
+NOTE: The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> will export by default all the experiments from the selected folder, resulted videos will be saved to a different folder. The default settings for the source and destination folder are as below:
 
 ```
 folder_address = "Approach/"
@@ -198,7 +198,7 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
 <!--Subsection Hardware-->
-[VL53L5CX_url]:     www.st.com/en/imaging-and-photonics-solutions/vl53l5cx.html
+[VL53L5CX_url]:     https://www.st.com/resource/en/datasheet/vl53l5cx.pdf
 [tps62233_url]:     https://www.ti.com/lit/ds/symlink/tps62230.pdf?ts=1642068933103&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTPS62230
 [tca6408a_url]:     https://www.ti.com/lit/ds/symlink/tca6408a.pdf?ts=1642063709908&ref_url=https%253A%252F%252Fwww.ti.com%252Fproduct%252FTCA6408A
 [crazyflie_url]:    https://www.bitcraze.io/products/crazyflie-2-1/
