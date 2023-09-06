@@ -164,7 +164,7 @@ address2save = "VisualizerResults/"
 
 ### Building and Flashing
 
-This work was tested using the [Crazyflie Firmware][cffw_url] at commit b0c72f2a4cb8b432211a2fa38d97c5a1dcef07ff. The code which was used for the paper is found at the github tag v1.0 in this repository. However, since then the build system of the crazyflie firmware has been updated, so to make this code compatible with newer versions the newest code in this git repo is updated to the kbuild system.
+This work was tested using the [Crazyflie Firmware][cffw_url] at commit b0c72f2a4cb8b432211a2fa38d97c5a1dcef07ff. The code which was used for the paper titled "Robust and Efficient Depth-based Obstacle Avoidance for Autonomous Miniaturized UAVs" is found at the GitHub <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/releases/tag/v1.0">tag v1.0</a> in this repository. However, since then the build system of the Crazyflie firmware has been updated, so to make this code compatible with newer versions the newest code in this git repo is updated to the kbuild system.
 
 - Follow the [Crazyflie guide][cfbf_url] for building and flashing and make sure you can compile the crazyflie-firmware without any issues
 - Clone this repository and update ```CRAZYFLIE_BASE``` in the **Makefile** (in the Firmware directory) to point to your own crazyflie-firmare repository
@@ -240,14 +240,14 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 
 
 
-[stmcubeIDE_url]:	https://www.st.com/en/development-tools/stm32cubeide.html
-[cfclient_url]:	      https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/
-[cffw_url]:	          https://github.com/bitcraze/crazyflie-firmware
-[cfbf_url]:	          https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/
-[altium_url]:	        https://www.altium.com/
-[video1_url]:	        https://youtu.be/FyipTqjBGuM
-[video2_url]:	        https://youtu.be/m9-spY1ruAQ
-[video3_url]:	        https://youtu.be/eR2RfNcEVSU
+[stmcubeIDE_url]:	                  https://www.st.com/en/development-tools/stm32cubeide.html
+[cfclient_url]:	                          https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/
+[cffw_url]:	                          https://github.com/bitcraze/crazyflie-firmware
+[cfbf_url]:	                          https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/
+[altium_url]:	                          https://www.altium.com/
+[video1_url]:	                          https://youtu.be/FyipTqjBGuM
+[video2_url]:	                          https://youtu.be/m9-spY1ruAQ
+[video3_url]:	                          https://youtu.be/eR2RfNcEVSU
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/ETH-PBL/Matrix_ToF_Drones.svg?style=flat-square
