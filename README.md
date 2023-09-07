@@ -84,7 +84,7 @@ Listed below the list of key components for our integrated deck targetted for th
 * [TCA6408A][tca6408a_url],       Low-Voltage 8-Bit I2C and SMBus I/O Expander
 
 ### PCB 
-The H-Watchs printed circuit board (PCB) is built of 4 Layers with a total board thichness of only 0.83mm. Further informations about the PCB can be found here:
+The matrix ToF printed circuit board (PCB) is built of 4 Layers with a total board thichness of only 0.43mm. Further informations about the PCB can be found here:
 
 File                                  | Content
 --------------------------------------|--------
