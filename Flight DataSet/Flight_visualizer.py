@@ -398,7 +398,7 @@ def desicion_making(img_array,invalid_mask,fig):
             target_str += '-F'
         elif nanmin(tar_distances)<DIS_REACT: #check for front object
             #objects which should be avoided
-            if min(Ys) >= DRONE_ZONE_tl_y and min(Xs) >= DRONE_ZONE_tl_x and max(Ys) <= DRONE_ZONE_br_y and max(Xs) <= DRONE_ZONE_br_x:
+            if max(Ys) >= DRONE_ZONE_tl_y and max(Xs) >= DRONE_ZONE_tl_x and min(Ys) <= DRONE_ZONE_br_y and min(Xs) <= DRONE_ZONE_br_x:
                 if nanmin(tar_distances)<=DIS_STOP:
                     if left:
                         decision_str+= "/stop and rotate fast right"
@@ -420,7 +420,7 @@ def desicion_making(img_array,invalid_mask,fig):
                     else:
                         decision_str+= "/medium forward and rotate slow left"
                         target_str += '-dzr'
-            elif min(Ys) >= CARE_ZONE_tl_y and min(Xs) >= CARE_ZONE_tl_x and max(Ys) <= CARE_ZONE_br_y and max(Xs) <= CARE_ZONE_br_x:
+            elif max(Ys) >= CARE_ZONE_tl_y and max(Xs) >= CARE_ZONE_tl_x and min(Ys) <= CARE_ZONE_br_y and min(Xs) <= CARE_ZONE_br_x:
                 if nanmin(tar_distances)<=DIS_STOP:
                     if left:
                         decision_str+= "/stop and rotate fast right"

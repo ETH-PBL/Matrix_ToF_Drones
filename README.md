@@ -114,7 +114,7 @@ The list of experiments is available here: [Flight_description.xlsx]
 
 ### Dataset Visualizer
 
-A Conda virtual environment is provided to execute the <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> script, an example of the exported video is provided below. The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor.
+A Conda virtual environment is provided to execute the <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> script, an example of the exported video is provided below. The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor. Note that there are slight differences in the python and c code results - the python code does not implement a take-off phase, so the decisions while taking off are not reflecting the drones behavior (the drone first takes of to the set target height no matter the environment, as it can not fly extremely close to the ground).
 
 ```
 conda env create -f environment.yml
