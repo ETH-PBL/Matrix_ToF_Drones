@@ -21,7 +21,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones">
+  <a href="https://youtu.be/FyipTqjBGuM">
     <img src="pics/drone.png" alt="Logo" width="620" height="325">
   </a>
 
