@@ -26,7 +26,6 @@
   </a>
 
   <h3 align="center">Matrix_ToF_Drones</h3>
-  <h3 align="center">Work in progress - not completed yet</h3>
 
   <p align="center">
     Indoor Navigation System based on Multi-Pixel Time-of-Flight Imaging for Nano-Drone Applications
