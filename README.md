@@ -192,6 +192,15 @@ make cload
 If you use **Matrix ToF Drone** in an academic or industrial context, please cite the following publications:
 
 ~~~~
+@article{muller2023robust,
+  title={Robust and efficient depth-based obstacle avoidance for autonomous miniaturized uavs},
+  author={M{\"u}ller, Hanna and Niculescu, Vlad and Polonelli, Tommaso and Magno, Michele and Benini, Luca},
+  journal={IEEE Transactions on Robotics},
+  year={2023},
+  publisher={IEEE}
+}
+~~~~
+~~~~
 @INPROCEEDINGS{20.500.11850/476189,
 	copyright = {Creative Commons Attribution 4.0 International},
 	year = {2022},
