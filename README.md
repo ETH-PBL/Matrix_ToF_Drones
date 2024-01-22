@@ -28,7 +28,7 @@
   <h3 align="center">Matrix_ToF_Drones</h3>
 
   <p align="center">
-    Indoor Navigation System based on Multi-Pixel Time-of-Flight Imaging for Nano-Drone Applications
+    Indoor Navigation System Based on Multi-Pixel Time-of-Flight Imaging for Nano-Drone Applications
     <br />
     <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones"><strong>Explore the docs »</strong></a>
     <br />
@@ -75,28 +75,28 @@ The matrix ToF sensor, and thus this project aims to characterize and in-field e
 
 ### Components
 The <a href="https://www.st.com/resource/en/datasheet/vl53l5cx.pdf">VL53L5CX</a> is a ToF multizone ranging sensor produced by STMicroelectronics. 
-It integrates a single-photon avalanche diode (SPAD) array, physical infrared filters, and diffractive optical elements (DOE) to achieve a millimeter accuracy in various ambient lighting conditions with a wide range of cover glass materials. The working range spans between 2 cm and 4 meters, but above 2 m the overall ranging precision degrades to 11% of the absolute distance. The most important feature of the VL53L5CX is the multizone capability, which can be configured as an 8x8 or 4x4 matrix. 
-Listed below the list of key components for our integrated deck targetted for the Crazyflie 2.1 platform: 
+It integrates a single-photon avalanche diode (SPAD) array, physical infrared filters, and diffractive optical elements (DOE) to achieve a millimeter accuracy in various ambient lighting conditions with a wide range of cover glass materials. The working range spans between 2 cm and 4 meters, but above 2 m, the overall ranging precision degrades to 11% of the absolute distance. The most important feature of the VL53L5CX is the multizone capability, which can be configured as an 8x8 or 4x4 matrix. 
+Listed below is the list of key components for our integrated deck targetted for the Crazyflie 2.1 platform: 
 
 * [VL53L5CX][VL53L5CX_url],       ToF multizone ranging sensor
 * [TPS62233][tps62233_url],       3-MHz Ultra Small Step-Down Converter
 * [TCA6408A][tca6408a_url],       Low-Voltage 8-Bit I2C and SMBus I/O Expander
 
 ### PCB 
-The matrix ToF printed circuit board (PCB) is built of 4 Layers with a total board thichness of only 0.43mm. Further informations about the PCB can be found here:
+The matrix ToF printed circuit board (PCB) is built of 2 Layers with a total board thickness of only 0.43mm. Further information about the PCB can be found here:
 
 File                                  | Content
 --------------------------------------|--------
 [Deck_schematics.pdf]                 | Schematics of the deck that supports 2 VL53L5CX.  
-[Deck_PCB_3D.pdf]                     | Layout 3D view with details to components and nets.
+[Deck_PCB_3D.pdf]                     | Layout 3D view with details of components and nets.
 [Deck_BOM.xlsx]			      | Bill of material for the Deck PCB.
-[Sensor_Board_schematics.pdf]         | Schematic of the lateral PCB that hold one VL53L5CX.
-[Sensor_Board_PCB_3D.pdf]             | Layout 3D view with details to components and nets.
+[Sensor_Board_schematics.pdf]         | Schematic of the lateral PCB that holds one VL53L5CX.
+[Sensor_Board_PCB_3D.pdf]             | Layout 3D view with details of components and nets.
 [Sensor_Board_BOM.xlsx]               | Bill of material for the sensor board.
-[Final_Assembly_3D.pdf]               | Assembly of one Deck PCB together with two sensor board PCBs, front-facing and back-facing directions. 
+[Final_Assembly_3D.pdf]               | Assembly of one Deck PCB with two sensor board PCBs, front-facing and back-facing directions. 
 
 
-The preview of the assembly, with details of logical connections can be found here:
+The preview of the assembly, with details of logical connections, can be found here:
 
 <p align="center">
 <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/Hardware/TofDeck/Deck_3D.pdf">
@@ -107,13 +107,13 @@ The preview of the assembly, with details of logical connections can be found he
 ## Dataset
 
 Tests were performed in controlled and open spaces, with the support of a motion capture system (mocap) Vicon Vero 2.2 at a rate of 50 Hz. A human pilot manually steered the Crazyflie. Initially, the dataset was used to develop and test the obstacle avoidance algorithm. However, other researchers can also use it to improve our system by integrating the multi-zone ToF data with processed information from a CNN and the grayscale camera or by applying a more general DNN algorithm to enhance on-board intelligence. 
-We collected (a) internal state estimation (attitude, velocity, position) of the Crazyflie, (b) multi-zone ToF array in 8x8 pixel configuration, (c) camera images (QVGA greyscale), (d) Vicon data (attitude, position) in a time series format with millisecond accuracy. The dataset consists of three main groups: object approach moving the drone on a single axis, yaw rotations around the Z-axis, and a general-purpose set of flying tests approaching various obstacles and narrow holes. The first group, named Linear Movements, consists of 10 recordings of flights with (a), (b), (c), and (d) data, approaching a wood panel at different speeds and stopping and flying back always on the same axis, rotations and altitude variations are disabled. The total test time is 216 seconds with an average of 22 seconds per acquisition. The next group, Yaw Rotations, consists of 3 recordings with (a), (b), (c), and (d) data, rotating on a single axis (yaw) at 1 meter from an obstacle. Recorded data reach a total of 94 seconds. The third and final group, named Obstacle Avoidance is composed of 30 recordings with a mixed combination of (a), (b), (c), (d) - 14 acquisitions - and (a), (b), (c) - 16 acquisitions. In total, for the third group, 17 minutes of flight maneuvers are present in the Flight DataSet folder, with an average of 35 seconds per acquisition. 
+We collected (a) internal state estimation (attitude, velocity, position) of the Crazyflie, (b) multi-zone ToF array in 8x8 pixel configuration, (c) camera images (QVGA greyscale), (d) Vicon data (attitude, position) in a time series format with millisecond accuracy. The dataset consists of three main groups: object approach moving the drone on a single axis, yaw rotations around the Z-axis, and a general-purpose set of flying tests approaching various obstacles and narrow holes. The first group, named Linear Movements, consists of 10 recordings of flights with (a), (b), (c), and (d) data, approaching a wood panel at different speeds and stopping and flying back always on the same axis, rotations and altitude variations are disabled. The total test time is 216 seconds with an average of 22 seconds per acquisition. The next group, Yaw Rotations, consists of 3 recordings with (a), (b), (c), and (d) data, rotating on a single axis (yaw) at 1 meter from an obstacle. Recorded data reach a total of 94 seconds. The third and final group, named Obstacle Avoidance, is composed of 30 recordings with a mixed combination of (a), (b), (c), (d) - 14 acquisitions - and (a), (b), (c) - 16 acquisitions. In total, for the third group, 17 minutes of flight maneuvers are present in the Flight DataSet folder, with an average of 35 seconds per acquisition. 
 
 The list of experiments is available here: [Flight_description.xlsx]
 
 ### Dataset Visualizer
 
-A Conda virtual environment is provided to execute the <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> script, an example of the exported video is provided below. The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor. Note that there are slight differences in the python and c code results - the python code does not implement a take-off phase, so the decisions while taking off are not reflecting the drones behavior (the drone first takes of to the set target height no matter the environment, as it can not fly extremely close to the ground).
+A Conda virtual environment is provided to execute the <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> script, an example of the exported video is provided below. The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> also emulate the control policy of the Crazyflie 2.1 providing the decision taken based on the input pair from the balck and white camera and the ToF sensor. Note that there are slight differences in the python and c code results - the python code does not implement a take-off phase, so the decisions while taking off do not reflect the drone's behavior (the drone first takes off to the set target height no matter the environment, as it can not fly extremely close to the ground).
 
 ```
 conda env create -f environment.yml
@@ -131,7 +131,7 @@ then run
 python Flight_visualizer.py
 ```
 
-the resulted generated videos will be save to the folder VisualizerResults in the following format:
+The generated videos will be saved to the folder VisualizerResults in the following format:
 
 <p align="center">
 <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones">
@@ -139,7 +139,7 @@ the resulted generated videos will be save to the folder VisualizerResults in th
 </a>
 </p>
 
-NOTE: The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> will export by default all the experiments from the selected folder, resulted videos will be saved to a different folder. The default settings for the source and destination folder are as below:
+NOTE: The <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/blob/main/Flight%20DataSet/Flight_visualizer.py">Flight_visualizer.py</a> will export by default all the experiments from the selected folder, resulted videos will be saved to a different folder. The default settings for the source and destination folders are as below:
 
 ```
 folder_address = "Approach/"
@@ -163,13 +163,13 @@ address2save = "VisualizerResults/"
 
 ### Building and Flashing
 
-This work was tested using the [Crazyflie Firmware][cffw_url] at commit b0c72f2a4cb8b432211a2fa38d97c5a1dcef07ff. The code which was used for the paper titled "Robust and Efficient Depth-based Obstacle Avoidance for Autonomous Miniaturized UAVs" is found at the GitHub <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/releases/tag/v1.0">tag v1.0</a> in this repository. However, since then the build system of the Crazyflie firmware has been updated, so to make this code compatible with newer versions the newest code in this git repo is updated to the kbuild system.
+This work was tested using the [Crazyflie Firmware][cffw_url] at commit b0c72f2a4cb8b432211a2fa38d97c5a1dcef07ff. The code that was used for the paper titled "Robust and Efficient Depth-based Obstacle Avoidance for Autonomous Miniaturized UAVs" is found at the GitHub <a href="https://github.com/ETH-PBL/Matrix_ToF_Drones/releases/tag/v1.0">tag v1.0</a> in this repository. However, since then, the build system of the Crazyflie firmware has been updated, so to make this code compatible with newer versions the newest code in this git repo is updated to the kbuild system.
 
-- Follow the [Crazyflie guide][cfbf_url] for building and flashing and make sure you can compile the crazyflie-firmware without any issues
+- Follow the [Crazyflie guide][cfbf_url] for building and flashing, and make sure you can compile the crazyflie-firmware without any issues
 - Clone this repository and update ```CRAZYFLIE_BASE``` in the **Makefile** (in the Firmware directory) to point to your own crazyflie-firmare repository
 - Open a terminal inside the Firmware folder
 - Put your drone in bootloader mode
-- Execute the following comands:
+- Execute the following commands:
 
 ```
 make clean
@@ -181,9 +181,9 @@ make cload
 
 - Turn on the drone  
 - Connect to it via [Crazyflie Client][cfclient_url]
-- Optional: Adapt params like max vel, height, etc. if wanted (in the Parameters tab, ToF_FLY_PARAMS)
+- Optional: Adapt params like max vel, height, etc., if wanted (in the Parameters tab, ToF_FLY_PARAMS)
 - Enter a number (in seconds) for how long it should fly (it will anyway land once the battery runs out) in the ToFly parameter
-- Press enter, it will take off and start flying around!
+- Press enter; it will take off and start flying around!
 - Optional: Look at the cmds in the Plotter tab (add a config under "Settings" "logging configurations")
 
 
