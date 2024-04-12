@@ -240,7 +240,7 @@ If you use **Matrix ToF Drone** in an academic or industrial context, please cit
 [Sensor_Board_schematics.pdf]:            /Hardware/SensorBoard/SensorBoard.pdf
 [Sensor_Board_PCB_3D.pdf]:                /Hardware/SensorBoard/SensorPCB_3D.pdf
 [Sensor_Board_BOM.xlsx]:                  /Hardware/SensorBoard/BOM_SensorBoard.xlsx
-[Final_Assembly_3D.pdf]:                  /Hardware/MultiBoard_Project/Outputs/Assembly1.pdf
+[Final_Assembly_3D.pdf]:                  /Hardware/MultiBoard_Project/Assembly_3D.pdf
 
 <!--Subsection Dataset-->
 [Flight_description.xlsx]:	          /Flight%20DataSet/Flight%20Dataset%20Description.xlsx
